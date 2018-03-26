@@ -1,28 +1,31 @@
 package com.epicodus.myrestaurants.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
+import com.epicodus.myrestaurants.Constants;
 import com.epicodus.myrestaurants.R;
 import com.epicodus.myrestaurants.adapters.RestaurantListAdapter;
 import com.epicodus.myrestaurants.services.YelpService;
 import com.epicodus.myrestaurants.models.Restaurant;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
 
 public class RestaurantListActivity extends AppCompatActivity {
+    private SharedPreferences mSharedPreferences;
+    private String mRecentAddress;
     public static final String TAG = RestaurantListActivity.class.getSimpleName();
 
 
@@ -42,7 +45,13 @@ public class RestaurantListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
 
-        getRestaurants(location);
+//        getRestaurants(location);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
+        if (mRecentAddress !=null) {
+            getRestaurants(mRecentAddress);
+        }
 
     }
 
