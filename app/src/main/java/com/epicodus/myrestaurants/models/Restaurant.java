@@ -18,6 +18,7 @@ public class Restaurant {
     private List<String> categories = new ArrayList<>();
     private String pushId;
 
+
     public Restaurant() {}
 
     public Restaurant(String name, String phone, String website,
