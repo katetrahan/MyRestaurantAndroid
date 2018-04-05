@@ -32,6 +32,7 @@ public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Resta
     private OnStartDragListener mOnStartDragListener;
     private Context mContext;
 
+
     public FirebaseRestaurantListAdapter(Class<Restaurant> modelClass,int modelLayout,
             Class<FirebaseRestaurantViewHolder> viewHolderClass,
                     Query ref, OnStartDragListener onStartDragListener, Context context) {

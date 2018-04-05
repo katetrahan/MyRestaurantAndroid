@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class RestaurantPagerAdapter extends FragmentPagerAdapter {
     private ArrayList<Restaurant> mRestaurants;
 
+
     public RestaurantPagerAdapter(FragmentManager fm, ArrayList<Restaurant> restaurants) {
         super(fm);
         mRestaurants = restaurants;
@@ -20,7 +21,7 @@ public class RestaurantPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return RestaurantDetailFragment.newInstance(mRestaurants.get(position));
+        return RestaurantDetailFragment.newInstance(mRestaurants, position);
     }
 
     @Override
