@@ -67,12 +67,6 @@ public class FirebaseRestaurantViewHolder extends RecyclerView.ViewHolder implem
                 R.animator.drag_scale_on);
         set.setTarget(itemView);
         set.start();
-
-//        itemView.animate()
-//                .alpha(0.7f)
-//                .scaleX(0.9f)
-//                .scaleY(0.9f)
-//                .setDuration(500);
     }
 
     @Override
@@ -81,10 +75,7 @@ public class FirebaseRestaurantViewHolder extends RecyclerView.ViewHolder implem
                 R.animator.drag_scale_off);
         set.setTarget(itemView);
         set.start();
-//        itemView.animate()
-//                .alpha(1f)
-//                .scaleX(1f)
-//                .scaleY(1f);
+
     }
 
 

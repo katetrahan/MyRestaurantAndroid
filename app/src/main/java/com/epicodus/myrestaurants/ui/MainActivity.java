@@ -31,8 +31,8 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-//    private SharedPreferences mSharedPreferences;
-//    private SharedPreferences.Editor mEditor;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
     private DatabaseReference mSearchedLocationReference;
     private ValueEventListener mSearchedLocationReferenceListener;
@@ -95,8 +95,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
 
 
     }
@@ -147,9 +147,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             saveLocationToFirebase(location);
 
-//                if(!(location).equals("")){
-//                    addToSharedPreferences(location);
-//                }
+            if(!(location).equals("")){
+                addToSharedPreferences(location);
+            }
 
             Intent intent = new Intent(MainActivity.this, RestaurantListActivity.class);
             intent.putExtra("location", location);
@@ -184,7 +184,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-//        private void addToSharedPreferences(String location){
-//            mEditor.putString(Constants.PREFERENCES_LOCATION_KEY,location).apply();
-//        }
+        private void addToSharedPreferences(String location){
+            mEditor.putString(Constants.PREFERENCES_LOCATION_KEY,location).apply();
+        }
 }
